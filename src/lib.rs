@@ -4,7 +4,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug)]
 struct InputRowRaw {
-    #[serde(rename(deserialize = "订单付款时间 "))]
+    #[serde(rename(deserialize = "other_name"))]
     #[serde(deserialize_with = "de_opt_native_datetime")]
     purchase_time: Option<NaiveDateTime>,
 }
@@ -22,7 +22,7 @@ where
         Err(e) => Err(e),
     }
 }
-pub const HEADERS: &[&str] = &["订单付款时间 "];
+pub const HEADERS: &[&str] = &["other_name"];
 
 #[cfg(test)]
 mod tests {
